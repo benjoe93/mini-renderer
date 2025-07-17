@@ -1,5 +1,9 @@
-#include <iostream>
+#define GLFW_INCLUDE_NONE  // Tell GLFW not to include OpenGL headers
+#include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include <string>
+#include <iostream>
+#include <fstream>          // used for reading files
 
 int main(void)
 {
