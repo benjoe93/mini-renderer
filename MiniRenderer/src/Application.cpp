@@ -1,4 +1,3 @@
-#define GLFW_INCLUDE_NONE  // Tell GLFW not to include OpenGL headers
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <string>
@@ -9,7 +8,7 @@ int main(void)
 {
     GLFWwindow* window;
 
-    /* Initialize the library */
+    /* Initialize GLFW library */
     if (!glfwInit())
         return -1;
 
@@ -23,6 +22,13 @@ int main(void)
 
     /* Make the window's context current */
     glfwMakeContextCurrent(window);
+
+    /* Initialize GLEW library */
+    if (glewInit() != GLEW_OK)
+        std::cout << "Error" << std::endl;
+
+    /* Print current OpenGL version */
+    std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << std::endl;
 
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
